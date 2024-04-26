@@ -89,8 +89,8 @@ public class EntityPlane extends EntityPlaneSoundBase {
 
     @Override
     public double getFallSpeed() {
-        return 0.1D;
-    }
+        return 0.143D;
+    }  // CHANGED: from 0.1D to 0.143D
 
     @Override
     protected void defineSynchedData() {
