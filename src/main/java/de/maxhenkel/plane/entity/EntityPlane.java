@@ -84,7 +84,7 @@ public class EntityPlane extends EntityPlaneSoundBase {
 
     @Override
     public int getMaxFuel() {
-        return 15000;
+        return 25500;  // CHANGED from 15000 to 25,500 (1.7x)
     }
 
     @Override

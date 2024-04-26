@@ -62,8 +62,8 @@ public class EntityBushPlane extends EntityPlaneSoundBase {
 
     @Override
     public int getMaxFuel() {
-        return 6000;
-    }
+        return 9000;
+    }  // CHANGED from 6000 to 9000 (1.5x)
 
     @Override
     public double getFallSpeed() {
