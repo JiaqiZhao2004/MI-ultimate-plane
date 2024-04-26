@@ -209,7 +209,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
                 motionVector = motionVector.add((lookVec.x / horizontalLook * horizontalMotion - motionVector.x) * 0.1D, 0D, (lookVec.z / horizontalLook * horizontalMotion - motionVector.z) * 0.1D);
             }
 
-            motionVector = motionVector.multiply(0.99D, 0.95D, 0.99D);  // CHANGED y from 0.98D to 0.95D
+            motionVector = motionVector.multiply(0.99D, 0.80D, 0.99D);  // CHANGED y from 0.98D to 0.80D
 
             double speed = motionVector.length();
 
