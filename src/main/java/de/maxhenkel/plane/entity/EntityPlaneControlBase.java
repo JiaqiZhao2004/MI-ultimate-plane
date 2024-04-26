@@ -25,8 +25,8 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
     private static final EntityDataAccessor<Boolean> DOWN = SynchedEntityData.defineId(EntityPlaneControlBase.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> BRAKE = SynchedEntityData.defineId(EntityPlaneControlBase.class, EntityDataSerializers.BOOLEAN);
 
-    public static final double MAX_ENGINE_SPEED = 2.1D;
-    public static final double ENGINE_ACCELERATION = 0.006D;
+    public static final double MAX_ENGINE_SPEED = 2.2D;  // CHANGED from 1.5D to 2.2D
+    public static final double ENGINE_ACCELERATION = 0.006D;  // CHANGED from 0.005D to 0.006D
     public static final double BRAKE_POWER = 0.012D;
 
     public EntityPlaneControlBase(EntityType type, Level worldIn) {
@@ -193,7 +193,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
             cosPitch = (float) ((double) cosPitch * (double) cosPitch * Math.min(1D, lookLength / 0.4D));
             motionVector = getDeltaMovement().add(0D, fallSpeed * (-1D + (double) cosPitch * 0.75D), 0D);
             if (motionVector.y < 0D && horizontalLook > 0D) {
-                double down = motionVector.y * -0.1D * (double) cosPitch; // here
+                double down = motionVector.y * -0.1D * (double) cosPitch;
                 motionVector = motionVector.add(lookVec.x * down / horizontalLook, down, lookVec.z * down / horizontalLook);
             }
 
@@ -206,7 +206,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
                 motionVector = motionVector.add((lookVec.x / horizontalLook * horizontalMotion - motionVector.x) * 0.1D, 0D, (lookVec.z / horizontalLook * horizontalMotion - motionVector.z) * 0.1D);
             }
 
-            motionVector = motionVector.multiply(0.99D, 0.98D, 0.99D);
+            motionVector = motionVector.multiply(0.99D, 0.95D, 0.99D);  // CHANGED y from 0.98D to 0.95D
 
             double speed = motionVector.length();
 
