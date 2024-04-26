@@ -83,8 +83,11 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
 
         float rotationSpeed = 0;
         if (Math.abs(speed) > 0F) {
-            rotationSpeed = Mth.abs(0.5F / (float) Math.pow(speed, 2)); //rotation modifier+0.5
-            rotationSpeed = Mth.clamp(rotationSpeed, 1.0F, 5.0F);
+// -----------ORIGINAL START
+//            rotationSpeed = Mth.abs(0.5F / (float) Math.pow(speed, 2)); //rotation modifier+0.5
+//            rotationSpeed = Mth.clamp(rotationSpeed, 1.0F, 5.0F);
+// -----------ORIGINAL END
+              rotationSpeed = Mth.abs(3F / (float) Math.pow(speed + 0.7F, 3) * (float) speed);
         }
 
         deltaRotation = 0;
