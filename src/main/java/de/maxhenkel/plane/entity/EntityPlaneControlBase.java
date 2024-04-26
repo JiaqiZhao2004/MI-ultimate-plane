@@ -27,7 +27,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
 
     public static final double MAX_ENGINE_SPEED = 2.2D;  // CHANGED from 1.5D to 2.2D
     public static final double ENGINE_ACCELERATION = 0.006D;  // CHANGED from 0.005D to 0.006D
-    public static final double BRAKE_POWER = 0.012D;
+    public static final double BRAKE_POWER = 0.012D * 0.65D;  // CHANGED from 0.012D to 0.012D * 0.65D
 
     public EntityPlaneControlBase(EntityType type, Level worldIn) {
         super(type, worldIn);
