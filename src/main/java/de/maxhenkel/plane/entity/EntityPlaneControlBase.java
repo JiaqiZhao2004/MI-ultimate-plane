@@ -88,7 +88,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
 //            rotationSpeed = Mth.abs(0.5F / (float) Math.pow(speed, 2)); //rotation modifier+0.5
 //            rotationSpeed = Mth.clamp(rotationSpeed, 1.0F, 5.0F);
 // -----------ORIGINAL END
-              rotationSpeed = Mth.abs(8F / (float) Math.pow(speed + 0.7F, 3) * (float) speed); // 8F: turn ability
+              rotationSpeed = Mth.abs((4F / (float) Math.pow(speed + 0.7F, 2) + 0.4F) * (float) speed); // 8F: turn ability
         }
 
         deltaRotation = 0;
@@ -210,7 +210,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
                 motionVector = motionVector.add((lookVec.x / horizontalLook * horizontalMotion - motionVector.x) * 0.1D, 0D, (lookVec.z / horizontalLook * horizontalMotion - motionVector.z) * 0.1D);
             }
 
-            motionVector = motionVector.multiply(0.995D, 0.8D, 0.995D);  // CHANGED from 0.99D, 0.98D, 0.99D
+            motionVector = motionVector.multiply(0.996D, 0.9D, 0.996D);  // CHANGED from 0.99D, 0.98D, 0.99D
 
             double speed = motionVector.length();
 
