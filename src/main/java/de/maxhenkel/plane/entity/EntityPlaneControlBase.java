@@ -198,7 +198,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
             cosPitch = (float) ((double) cosPitch * (double) cosPitch * Math.min(1D, lookLength / 0.4D));
             motionVector = getDeltaMovement().add(0D, fallSpeed * (-1D + (double) cosPitch * 0.75D), 0D);
             if (motionVector.y < 0D && horizontalLook > 0D) {
-                double down = motionVector.y * -0.1D * (double) cosPitch;
+                double down = motionVector.y * -0.09D * (double) cosPitch;  // CHANGED from -0.1D, effect on speed when diving
                 motionVector = motionVector.add(lookVec.x * down / horizontalLook, down, lookVec.z * down / horizontalLook);
             }
 
