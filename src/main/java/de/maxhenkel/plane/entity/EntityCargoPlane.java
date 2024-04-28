@@ -121,8 +121,8 @@ public class EntityCargoPlane extends EntityPlaneSoundBase {
 
     @Override
     public double getFallSpeed() {
-        return 0.143D;
-    }   // CHANGED: from 0.11D to 0.143D
+        return 0.115D;
+    }   // CHANGED: from 0.11D
 
     @Override
     protected void defineSynchedData() {
