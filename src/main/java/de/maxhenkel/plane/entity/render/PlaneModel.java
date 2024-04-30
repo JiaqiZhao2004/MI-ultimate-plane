@@ -77,6 +77,8 @@ public class PlaneModel extends AbstractPlaneModel<EntityPlane> {
     private static final List<OBJModelInstance<EntityPlane>> LIGHT_GRAY_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_gray_terracotta.png"));
     private static final List<OBJModelInstance<EntityPlane>> RED_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/red_terracotta.png"));
     private static final List<OBJModelInstance<EntityPlane>> GREEN_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/green_terracotta.png"));
+    private static final List<OBJModelInstance<EntityPlane>> ERROR_BLOCK_MODEL = getPlaneModel(new ResourceLocation(Main.MODID, "textures/block/error_block.png"));
+
 
     public PlaneModel(EntityRendererProvider.Context renderManager) {
         super(renderManager);
@@ -135,6 +137,8 @@ public class PlaneModel extends AbstractPlaneModel<EntityPlane> {
                 return RED_TERRACOTTA_MODEL;
             case GREEN_TERRACOTTA:
                 return GREEN_TERRACOTTA_MODEL;
+            case ERROR_BLOCK:
+                return ERROR_BLOCK_MODEL;
         }
     }
 

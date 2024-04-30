@@ -128,7 +128,8 @@ public class EntityPlane extends EntityPlaneSoundBase {
         ORANGE_TERRACOTTA("orange_terracotta"),
         LIGHT_GRAY_TERRACOTTA("light_gray_terracotta"),
         RED_TERRACOTTA("red_terracotta"),
-        GREEN_TERRACOTTA("green_terracotta");
+        GREEN_TERRACOTTA("green_terracotta"),
+        ERROR_BLOCK("error_block");
 
         private String name;
 
