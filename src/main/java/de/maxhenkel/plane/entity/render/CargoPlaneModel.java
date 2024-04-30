@@ -9,6 +9,7 @@ import de.maxhenkel.corelib.client.obj.OBJModelOptions;
 import de.maxhenkel.corelib.math.Rotation;
 import de.maxhenkel.plane.Main;
 import de.maxhenkel.plane.entity.EntityCargoPlane;
+import de.maxhenkel.plane.entity.EntityPlane;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
 
@@ -68,6 +69,15 @@ public class CargoPlaneModel extends AbstractPlaneModel<EntityCargoPlane> {
     private static final List<OBJModelInstance<EntityCargoPlane>> SPRUCE_MODEL = getPlaneModel(new ResourceLocation("textures/block/spruce_planks.png"));
     private static final List<OBJModelInstance<EntityCargoPlane>> WARPED_MODEL = getPlaneModel(new ResourceLocation("textures/block/warped_planks.png"));
     private static final List<OBJModelInstance<EntityCargoPlane>> CRIMSON_MODEL = getPlaneModel(new ResourceLocation("textures/block/crimson_planks.png"));
+    // CHANGED
+    private static final List<OBJModelInstance<EntityCargoPlane>> WHITE_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/white_terracotta.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> LIGHT_GRAY_CONCRETE_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_gray_concrete.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> WHITE_CONCRETE_MODEL = getPlaneModel(new ResourceLocation("textures/block/white_concrete.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> LIGHT_BLUE_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_blue_terracotta.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> ORANGE_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/orange_terracotta.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> LIGHT_GRAY_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_gray_terracotta.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> RED_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/red_terracotta.png"));
+    private static final List<OBJModelInstance<EntityCargoPlane>> GREEN_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/green_terracotta.png"));
 
     public CargoPlaneModel(EntityRendererProvider.Context renderManager) {
         super(renderManager);
@@ -109,6 +119,23 @@ public class CargoPlaneModel extends AbstractPlaneModel<EntityCargoPlane> {
                 return WARPED_MODEL;
             case CRIMSON:
                 return CRIMSON_MODEL;
+            // CHANGED
+            case WHITE_TERRACOTTA:
+                return WHITE_TERRACOTTA_MODEL;
+            case LIGHT_GRAY_CONCRETE:
+                return LIGHT_GRAY_CONCRETE_MODEL;
+            case WHITE_CONCRETE:
+                return WHITE_CONCRETE_MODEL;
+            case LIGHT_BLUE_TERRACOTTA:
+                return LIGHT_BLUE_TERRACOTTA_MODEL;
+            case ORANGE_TERRACOTTA:
+                return ORANGE_TERRACOTTA_MODEL;
+            case LIGHT_GRAY_TERRACOTTA:
+                return LIGHT_GRAY_TERRACOTTA_MODEL;
+            case RED_TERRACOTTA:
+                return RED_TERRACOTTA_MODEL;
+            case GREEN_TERRACOTTA:
+                return GREEN_TERRACOTTA_MODEL;
         }
     }
 

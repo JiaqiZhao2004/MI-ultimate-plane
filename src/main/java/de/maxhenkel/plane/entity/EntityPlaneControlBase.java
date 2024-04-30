@@ -88,7 +88,6 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
 //            rotationSpeed = Mth.abs(0.5F / (float) Math.pow(speed, 2)); //rotation modifier+0.5
 //            rotationSpeed = Mth.clamp(rotationSpeed, 1.0F, 5.0F);
 // -----------ORIGINAL END
-//            rotationSpeed = Mth.abs((4F / (float) Math.pow(speed + 0.7F, 2) + 0.4F) * (float) speed); // 8F: turn ability
             rotationSpeed = (float) ((4 / Math.pow((speed + 0.4), 2) + 0.2) * speed);
         }
 

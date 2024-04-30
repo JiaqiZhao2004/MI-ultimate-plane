@@ -68,6 +68,15 @@ public class PlaneModel extends AbstractPlaneModel<EntityPlane> {
     private static final List<OBJModelInstance<EntityPlane>> SPRUCE_MODEL = getPlaneModel(new ResourceLocation("textures/block/spruce_planks.png"));
     private static final List<OBJModelInstance<EntityPlane>> WARPED_MODEL = getPlaneModel(new ResourceLocation("textures/block/warped_planks.png"));
     private static final List<OBJModelInstance<EntityPlane>> CRIMSON_MODEL = getPlaneModel(new ResourceLocation("textures/block/crimson_planks.png"));
+    // CHANGED
+    private static final List<OBJModelInstance<EntityPlane>> WHITE_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/white_terracotta.png"));
+    private static final List<OBJModelInstance<EntityPlane>> LIGHT_GRAY_CONCRETE_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_gray_concrete.png"));
+    private static final List<OBJModelInstance<EntityPlane>> WHITE_CONCRETE_MODEL = getPlaneModel(new ResourceLocation("textures/block/white_concrete.png"));
+    private static final List<OBJModelInstance<EntityPlane>> LIGHT_BLUE_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_blue_terracotta.png"));
+    private static final List<OBJModelInstance<EntityPlane>> ORANGE_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/orange_terracotta.png"));
+    private static final List<OBJModelInstance<EntityPlane>> LIGHT_GRAY_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/light_gray_terracotta.png"));
+    private static final List<OBJModelInstance<EntityPlane>> RED_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/red_terracotta.png"));
+    private static final List<OBJModelInstance<EntityPlane>> GREEN_TERRACOTTA_MODEL = getPlaneModel(new ResourceLocation("textures/block/green_terracotta.png"));
 
     public PlaneModel(EntityRendererProvider.Context renderManager) {
         super(renderManager);
@@ -109,6 +118,23 @@ public class PlaneModel extends AbstractPlaneModel<EntityPlane> {
                 return WARPED_MODEL;
             case CRIMSON:
                 return CRIMSON_MODEL;
+            // CHANGED
+            case WHITE_TERRACOTTA:
+                return WHITE_TERRACOTTA_MODEL;
+            case LIGHT_GRAY_CONCRETE:
+                return LIGHT_GRAY_CONCRETE_MODEL;
+            case WHITE_CONCRETE:
+                return WHITE_CONCRETE_MODEL;
+            case LIGHT_BLUE_TERRACOTTA:
+                return LIGHT_BLUE_TERRACOTTA_MODEL;
+            case ORANGE_TERRACOTTA:
+                return ORANGE_TERRACOTTA_MODEL;
+            case LIGHT_GRAY_TERRACOTTA:
+                return LIGHT_GRAY_TERRACOTTA_MODEL;
+            case RED_TERRACOTTA:
+                return RED_TERRACOTTA_MODEL;
+            case GREEN_TERRACOTTA:
+                return GREEN_TERRACOTTA_MODEL;
         }
     }
 
