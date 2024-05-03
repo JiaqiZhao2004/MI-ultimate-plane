@@ -46,6 +46,34 @@ public class BushPlaneModel extends AbstractPlaneModel<EntityBushPlane> {
                             }
                     )
             ),
+            // new rear wheels 1
+            new OBJModelInstance<>(
+                    new OBJModel(
+                            new ResourceLocation(Main.MODID, "models/entity/wheel.obj")
+                    ),
+                    new OBJModelOptions<>(
+                            new ResourceLocation(Main.MODID, "textures/entity/wheel.png"),
+                            new Vector3d(-0.5D / 16D, 2D / 16D, 16.5D / 16D),
+                            (plane, matrixStack, partialTicks) -> {
+                                matrixStack.scale(1F / 16F, 1F / 16F, 1F / 16F);
+                                matrixStack.mulPose(Vector3f.XP.rotationDegrees(-plane.getWheelRotation(partialTicks)));
+                            }
+                    )
+            ),
+            // new rear wheels 2
+            new OBJModelInstance<>(
+                    new OBJModel(
+                            new ResourceLocation(Main.MODID, "models/entity/wheel.obj")
+                    ),
+                    new OBJModelOptions<>(
+                            new ResourceLocation(Main.MODID, "textures/entity/wheel.png"),
+                            new Vector3d(1.5D / 16D, 2D / 16D, 16.5D / 16D),
+                            (plane, matrixStack, partialTicks) -> {
+                                matrixStack.scale(1F / 16F, 1F / 16F, 1F / 16F);
+                                matrixStack.mulPose(Vector3f.XP.rotationDegrees(-plane.getWheelRotation(partialTicks)));
+                            }
+                    )
+            ),
             new OBJModelInstance<>(
                     new OBJModel(
                             new ResourceLocation(Main.MODID, "models/entity/propeller.obj")
