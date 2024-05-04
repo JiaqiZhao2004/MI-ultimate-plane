@@ -197,20 +197,20 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
             cosPitch = (float) ((double) cosPitch * (double) cosPitch * Math.min(1D, lookLength / 0.4D));
             motionVector = getDeltaMovement().add(0D, fallSpeed * (-1D + (double) cosPitch * 0.75D), 0D);
             if (motionVector.y < 0D && horizontalLook > 0D) {
-                double down = motionVector.y * -0.09D * (double) cosPitch;  // CHANGED from -0.1D, effect on speed when diving
-                motionVector = motionVector.add(lookVec.x * down / horizontalLook, down, lookVec.z * down / horizontalLook);
+                double down = motionVector.y * -0.1D * cosPitch;
+                motionVector = motionVector.add(lookVec.x * down / horizontalLook * 0.9, down * 0.8, lookVec.z * down / horizontalLook * 0.9);  // CHANGED added the coefficients
             }
 
-            if (pitch < 0.0F && horizontalLook > 0D) {
+            if (pitch < 0.0F && horizontalLook > 0D) { // if climbing
                 double d13 = horizontalMotion * (double) (-Mth.sin(pitch)) * 0.04D;
-                motionVector = motionVector.add(-lookVec.x * d13 / horizontalLook, d13 * 3.2D, -lookVec.z * d13 / horizontalLook);
+                motionVector = motionVector.add(-lookVec.x * d13 / horizontalLook, d13 * 2.8D, -lookVec.z * d13 / horizontalLook);  // CHANGED d13 * 3.2D -> d13 * 2.8D, reduce climb speed
             }
 
             if (horizontalLook > 0D) {
                 motionVector = motionVector.add((lookVec.x / horizontalLook * horizontalMotion - motionVector.x) * 0.1D, 0D, (lookVec.z / horizontalLook * horizontalMotion - motionVector.z) * 0.1D);
             }
 
-            motionVector = motionVector.multiply(0.9925D, 0.91D, 0.9925D);  // CHANGED from 0.99D, 0.98D, 0.99D
+            motionVector = motionVector.multiply(0.99D, 0.98D, 0.99D);
 
             double speed = motionVector.length();
 
