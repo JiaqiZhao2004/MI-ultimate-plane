@@ -117,9 +117,9 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
 
         // ----- PITCH ------
         if (isUp()) {
-            setXRot(getXRot() - 1F);
+            setXRot(getXRot() - 0.5F);  // CHANGED 1F -> 0.5F reduce sensitivity
         } else if (isDown()) {
-            setXRot(getXRot() + 1F);
+            setXRot(getXRot() + 0.5F);  // CHANGED 1F -> 0.5F reduce sensitivity
         }
 
         setXRot(Math.max(getXRot(), -90F));
