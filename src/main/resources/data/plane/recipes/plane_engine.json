@@ -1,0 +1,23 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    "FIF",
+    "IBI",
+    "FIF"
+  ],
+  "key": {
+    "B": {
+      "tag": "forge:storage_blocks/iron"
+    },
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "I": {
+      "item": "plane:diamond_reinforced_iron"
+    }
+  },
+  "result": {
+    "item": "plane:plane_engine",
+    "count": 1
+  }
+}

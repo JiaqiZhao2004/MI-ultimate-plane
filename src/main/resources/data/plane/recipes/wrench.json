@@ -1,0 +1,20 @@
+{
+  "type": "crafting_shaped",
+  "pattern": [
+    " D ",
+    " SD",
+    "S  "
+  ],
+  "key": {
+    "D": {
+      "item": "plane:diamond_reinforced_iron"
+    },
+    "S": {
+      "tag": "forge:rods/iron"
+    }
+  },
+  "result": {
+    "item": "plane:wrench",
+    "count": 1
+  }
+}
