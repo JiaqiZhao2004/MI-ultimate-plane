@@ -25,9 +25,9 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
     private static final EntityDataAccessor<Boolean> DOWN = SynchedEntityData.defineId(EntityPlaneControlBase.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> BRAKE = SynchedEntityData.defineId(EntityPlaneControlBase.class, EntityDataSerializers.BOOLEAN);
 
-    public static final double MAX_ENGINE_SPEED = 1.5D;
-    public static final double ENGINE_ACCELERATION = 0.005D;
-    public static final double BRAKE_POWER = 0.012D;
+    public static final double MAX_ENGINE_SPEED = 2.2D;  // CHANGED from 1.5D to 2.2D
+    public static final double ENGINE_ACCELERATION = 0.006D;  // CHANGED from 0.005D to 0.006D
+    public static final double BRAKE_POWER = 0.012D * 0.65D;  // CHANGED from 0.012D to 0.012D * 0.65D
 
     public EntityPlaneControlBase(EntityType type, Level worldIn) {
         super(type, worldIn);
@@ -83,8 +83,12 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
 
         float rotationSpeed = 0;
         if (Math.abs(speed) > 0F) {
-            rotationSpeed = Mth.abs(0.5F / (float) Math.pow(speed, 2)); //rotation modifier+0.5
-            rotationSpeed = Mth.clamp(rotationSpeed, 1.0F, 5.0F);
+//            CHANGED TURN RADII
+// -----------ORIGINAL START
+//            rotationSpeed = Mth.abs(0.5F / (float) Math.pow(speed, 2)); //rotation modifier+0.5
+//            rotationSpeed = Mth.clamp(rotationSpeed, 1.0F, 5.0F);
+// -----------ORIGINAL END
+            rotationSpeed = (float) ((4 / Math.pow((speed + 0.4), 2) + 0.2) * speed);
         }
 
         deltaRotation = 0;
@@ -176,7 +180,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
                 speed = decreaseToZero(speed, 0.002D); // ground resistance
             }
 
-            Vec3 motion = getLookAngle().normalize().scale(speed).multiply(1D, 0D, 1D);
+            Vec3 motion = getLookAngle().normalize().scale(speed).multiply(0.997D, 0D, 0.997D);  // CHANGED from 1D, 0D, 1D to require longer takeoff
             setDeltaMovement(motion);
             if (speed > 0D) {
                 move(MoverType.SELF, getDeltaMovement());
@@ -193,7 +197,7 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
             cosPitch = (float) ((double) cosPitch * (double) cosPitch * Math.min(1D, lookLength / 0.4D));
             motionVector = getDeltaMovement().add(0D, fallSpeed * (-1D + (double) cosPitch * 0.75D), 0D);
             if (motionVector.y < 0D && horizontalLook > 0D) {
-                double down = motionVector.y * -0.1D * (double) cosPitch;
+                double down = motionVector.y * -0.09D * (double) cosPitch;  // CHANGED from -0.1D, effect on speed when diving
                 motionVector = motionVector.add(lookVec.x * down / horizontalLook, down, lookVec.z * down / horizontalLook);
             }
 
@@ -206,13 +210,13 @@ public abstract class EntityPlaneControlBase extends EntityPlaneDamageBase {
                 motionVector = motionVector.add((lookVec.x / horizontalLook * horizontalMotion - motionVector.x) * 0.1D, 0D, (lookVec.z / horizontalLook * horizontalMotion - motionVector.z) * 0.1D);
             }
 
-            motionVector = motionVector.multiply(0.99D, 0.98D, 0.99D);
+            motionVector = motionVector.multiply(0.9925D, 0.91D, 0.9925D);  // CHANGED from 0.99D, 0.98D, 0.99D
 
             double speed = motionVector.length();
 
             if (speed < MAX_ENGINE_SPEED * engineSpeed) {
                 double addSpeed = 0D;
-                addSpeed = addSpeed + engineSpeed * ENGINE_ACCELERATION * 4F;
+                addSpeed = addSpeed + engineSpeed * ENGINE_ACCELERATION * 5F; // CHANGED from * 4F
                 if (speed + addSpeed > MAX_ENGINE_SPEED * engineSpeed) {
                     addSpeed = (MAX_ENGINE_SPEED * engineSpeed) - speed;
                 }

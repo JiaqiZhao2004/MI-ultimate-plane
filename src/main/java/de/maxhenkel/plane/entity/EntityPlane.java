@@ -84,13 +84,13 @@ public class EntityPlane extends EntityPlaneSoundBase {
 
     @Override
     public int getMaxFuel() {
-        return 15000;
+        return 25500;  // CHANGED from 15000 to 25,500 (1.7x)
     }
 
     @Override
     public double getFallSpeed() {
-        return 0.1D;
-    }
+        return 0.105D;
+    }  // CHANGED: from 0.1D
 
     @Override
     protected void defineSynchedData() {
@@ -119,7 +119,17 @@ public class EntityPlane extends EntityPlaneSoundBase {
         ACACIA("acacia"),
         DARK_OAK("dark_oak"),
         WARPED("warped"),
-        CRIMSON("crimson");
+        CRIMSON("crimson"),
+        // CHANGED
+        WHITE_TERRACOTTA("white_terracotta"),
+        LIGHT_GRAY_CONCRETE("light_gray_concrete"),
+        WHITE_CONCRETE("white_concrete"),
+        LIGHT_BLUE_TERRACOTTA("light_blue_terracotta"),
+        ORANGE_TERRACOTTA("orange_terracotta"),
+        LIGHT_GRAY_TERRACOTTA("light_gray_terracotta"),
+        RED_TERRACOTTA("red_terracotta"),
+        GREEN_TERRACOTTA("green_terracotta"),
+        ERROR_BLOCK("error_block");
 
         private String name;
 
